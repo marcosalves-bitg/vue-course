@@ -9,7 +9,7 @@
 <body>
 
     <div id="app">
-        <input type="text" v-on:input="alterarTitulo">
+        <input type="text">
         <p>
             {{message}}
         </p>
@@ -21,11 +21,6 @@
         el: '#app',
         data: {
             message: 'Usando VueJS'
-        },
-        methods: {
-            alterarTitulo(event) {
-                this.message = event.target.value
-            }
         }
     })
     </script>
