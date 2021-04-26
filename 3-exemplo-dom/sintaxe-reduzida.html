@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue.js"></script>
+
+    <div id="app">
+        <p>{{ contador }}</p>
+        <!-- <button v-on:click="somar">Somar 1</button> SINTAXE LONGA -->
+        <button @click="somar">Somar 1</button>
+        <hr>
+        <!-- <input type="text" v-bind:value="contador"> SINTAXE LONGA -->
+        <input type="text" :value="contador">
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                contador: 0
+            },
+            methods: {
+                somar(event) {
+                    console.log(event)
+                    this.contador++
+                }
+            }
+        })
+    </script>
+</body>
+</html>
