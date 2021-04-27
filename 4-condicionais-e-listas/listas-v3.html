@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul {
+            list-style: none;
+        }
+        h1, p {
+            display: inline;
+        }
+    </style>
+
+</head>
+<body>
+    <script src="../vue.js"></script>
+    <div id="app">
+        <ul>
+            <li v-for="(cor, i) in cores">{{ i+1 }}){{ cor }}</li>
+        </ul>
+        <hr>
+        <template v-for="(cor, i) in cores">
+            <h1>{{ cor }}</h1>
+            <p>{{ i + 1 }}</p>
+        </template>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                cores: ['vermelho', 'verde', 'amarelo', 'azul'],
+                pessoas: [
+                    { nome: 'Marcos', idade: 32, peso: 96 },
+                    { nome: 'Vanessa', idade: 29, peso: 60 },
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
