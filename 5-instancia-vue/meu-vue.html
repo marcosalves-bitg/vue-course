@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu VUE</title>
+</head>
+<body>
+    <div id="app">
+        {{ nome }} {{ sobrenome }} {{ 1 + 1 }} {{ Math.pow(2,3) }}
+    </div>
+
+    <script>
+        function MeuVue(params) {
+            this.$el = document.querySelector(params.el)
+            this.$data = params.data
+
+            for(let atr in this.$data) {
+                Object.defineProperty(this, atr, {
+                    get: () => {
+                        return this.$data[atr]
+                    },
+                    set: value => {
+                        this.$data[atr] = value
+                    }
+                })
+            }
+
+            const regex = /\{\{([\s\w)(,.+*-]*)\}\}/g
+            this.$el.innerHTML = this.$el.innerHTML.replace(regex, (match, $1) => {
+                const value = this[$1.trim()]
+                return value ? value : eval($1)
+            })
+        }
+
+        const vm = new MeuVue({
+            el: '#app',
+            data: {
+                nome: 'Marcos',
+                sobrenome: 'Alves'
+            }
+        })
+
+        console.log(vm.nome)
+        console.log(vm.$data.nome)
+
+        vm.nome = 'Rodrigo'
+        console.log(vm.nome)
+        console.log(vm.$data.nome)
+    </script>
+</body>
+</html>

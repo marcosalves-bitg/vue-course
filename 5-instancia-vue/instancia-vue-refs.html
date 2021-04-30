@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Instancia VUE</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 ref="aulaRef">{{ aula }}</h1>
+        <h2 ref="moduloRef">{{ modulo }}</h2>
+        <button @click="alterarAula">Updt Aula</button>
+        <button @click="alterarModulo">Updt Modulo</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                aula: 'Aula: Usando REFS',
+                modulo: 'Módulo: Instancia VUE'
+            },
+            methods: {
+                alterarAula() {
+                    this.aula += "#"
+                    console.log(this.$ref.aulaRef.innerText)
+                },
+                alterarModulo() {
+                    this.modulo += "#"
+                }
+            }
+        })
+
+        console.log(vm)
+        vm.$refs.aulaRef.innerText = 'Alterado diretamente que feio'
+    </script>
+</body>
+</html>
