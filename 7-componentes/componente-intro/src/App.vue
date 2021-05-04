@@ -1,7 +1,6 @@
 <template>
-    <div>
-      <h1> CONTADORES </h1>
-      <span> {{ contador }} </span>
+    <div>      
+      <app-contadores />
     </div>
 </template>
 
