@@ -1,0 +1,22 @@
+v-if="return boolean"
+v-else-if="return boolean"
+v-else
+usado para mostrar ou não elementos na DOM.
+Ele faz o attach ou dettach dos elementos (remove completamente os elementos, não aparecendo mais nem inspecionando elemento)
+
+
+v-show="return boolean"
+mostrar ou não elementos na DOM
+Diferente do v-if, o elemento ainda fica passivel de ser inspecionado. É alterado o display pra none
+
+
+
+v-model
+two-way data bind. A alteração em um input é recebida no data() do VUE e vice-versa
+
+
+@ (v-on)
+"Escuta" por eventos da DOM
+
+: (v-bind)
+faz o "bind" de um atributo html com um valor (ou expressão JS)

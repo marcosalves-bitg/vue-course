@@ -93,6 +93,8 @@ export default {
 .exercicios {
 	display: flex;
 	align-content: center;
+	align-items: center;
+
 	/* flex-direction: column; */
 }
 
@@ -102,7 +104,7 @@ export default {
 	border-radius: 10px;
 	align-content: center;
 	flex-direction: column;
-	align-content: space-evenly;
+	/* align-content: space-evenly; */
 	min-width: 200px;
 	max-width: 100%;
 }

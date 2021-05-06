@@ -19,7 +19,8 @@ Vue.filter('countLetters', function(valor) {
 	
 	// return formatedString
 	// essa era a minha solução besta
-	return valor.split(' ').map(p => `${p} (${p.length})`).join(' ')
+
+	return valor == '' ? '' : valor.split(' ').map(p => `${p} (${p.length})`).join(' ')
 })
 
 new Vue({
