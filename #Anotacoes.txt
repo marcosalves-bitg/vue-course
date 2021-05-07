@@ -17,6 +17,44 @@ two-way data bind. A alteração em um input é recebida no data() do VUE e vice
 
 @ (v-on)
 "Escuta" por eventos da DOM
+ex: @click
 
 : (v-bind)
 faz o "bind" de um atributo html com um valor (ou expressão JS)
+ex: href="{{ url }} não funcionaria
+    teria que fazer: :href="url"
+
+
+
+
+
+
+Em chamadas de componentes:
+:prop-name="alguma_variavel"
+Nome da propriedade que será repassado para o componente filhor
+
+ex:
+(linha no comp pai)
+<Question v-if="questionMode" :question="questions[currentQuestion]" @answered="showResult" />
+                                Props passada do pai pro filho
+
+(linha no comp filho)
+props: {
+        question: {
+            type: Object,
+            required: true
+        }
+    }
+
+
+@variavel
+Nome do $emit enviado a partir do componente
+
+Ex:
+(linha no componente filho, chamado Question)
+li v-for="(answers, i) in question.answers" :key="answers.text" @click="$emit('answered', answer.correct)">
+                                                                ao clicar nesse li, envia ao componente pai um evento chamado answered com o valor de answer.correct
+(linha no componente pai)
+<Question v-if="questionMode" :question="questions[currentQuestion]" @answered="showResult" />
+                                                                     a espera do evento emitido a partir do filho. Aguarda o evento "answered" e executa, assim que receber, o método showResult
+                                                                            
